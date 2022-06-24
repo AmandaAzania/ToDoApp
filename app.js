@@ -116,3 +116,15 @@ function DisplayTodos () {
 
 	})
 }
+
+document.querySelector('#sorting').addEventListener('click', ()=> {
+    todos.sort( (a, b)=> {
+        return (a.item < b.item) ? -1: 0; 
+    });
+    // Save new data to the localstorage
+    localStorage.setItem('todos', JSON.stringify(todos));   
+    readItems(); 
+});
+
+
+
