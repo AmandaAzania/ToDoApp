@@ -1,76 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>To Do App</title>
-	<!-- CSS Import -->
-	<link rel="stylesheet" href="index.css" />
-	<!-- End of CSS Import -->
-	<!-- Fonts -->
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;0,900;1,400&family=Montserrat:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
-	<!-- End of Fonts -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!-- Bootstrsp Icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./index.css">
+    <title>Document</title>
 </head>
 <body>
-	<!-- App Wrapper -->
-	<main class="app">
-		<!-- Greeting -->
-		<section class="greeting">
-			<h2 class="title">
-				What's up, <input type="text" id="name" placeholder="Name here" />
-			</h2>
-		</section>
-		<!-- End of Greeting -->
-		
-		<!-- New Todo -->
-		<section class="create-todo">
-			<h3>CREATE A TODO</h3>
-			<form id="new-todo-form">
-				<h4>What's on your todo?</h4>
-				<input 
-					type="text" 
-					placeholder="e.g. Submit the ten tasks"
-					name="content"
-					id="content" />
-				
-				<h4>Pick a category</h4>
-				<div class="options">
-					<label>
-						<input type="radio" name="category" id="category1" value="School" /> 
-						<span class="bubble business"></span>
-						<div>School</div>
-					</label>
-					<label>
-						<input type="radio" name="category" id="category2" value="personal" />
-						<span class="bubble personal"></span>
-						<div>Personal</div>
-					</label>
-				</div>
 
-				<input type="submit" value="Add todo" /> <br>
+        <div class="container-fluid">
+<br>
+            <section class="greeting">
+                <h2 class="title">
+                    What's up, <input type="text" id="name" placeholder="Name here" />
+                </h2>
+            </section>
 
-				<input type="submit" id="sorting"  value="sort items"/>
-			</form>
-		</section>
-		<!-- End of New Todo -->
-
-        <h1>sort by</h1>
-	
-		<!-- Todo List -->
-		<section class="todo-list">
-			<h3>TODO LIST</h3>
-			<div class="list" id="todo-list"></div>
-		</section>
-		<!-- End of Todo List -->
-
-	</main>
-	<!-- End of App Wrapper -->
-
-	<!-- JS Import -->
-	<script src="app.js"></script>
-	<!-- End of JS Import -->
+            <section class="create-todo">
+            <form class="w-75" id="form">
+                <div class="row my-2">
+                    
+                    <div class="col">
+                        <input class="form-control" type="text" placeholder="What do you have planned?" id="list-content">
+                    </div>
+                   
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button id="addItem" >Add Item <i class="bi bi-plus-square"></i></button>
+                    </div>
+    
+                    <div class="col">
+                        <button id="sorting" >Sort your list <i class="bi bi-sort-alpha-down"></i></button>
+                    </div>
+                </div>
+             
+                <div class="row bg-gradient my-2">
+                    <ul id="item-wrapper" class="my-2 ms-auto me-auto ps-5 list-group">
+                    </ul>
+                </div>
+            </form>
+            </section>
+        </div>
+        <!-- Bootstrap JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="./code.js"></script>
 </body>
 </html>
