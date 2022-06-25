@@ -24,7 +24,9 @@
 }
 
 body {
-	background: var(--light);
+	background-image: url("./images/photo-1528459584353-5297db1a9c01.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
 	color: var(--dark);
 }
 

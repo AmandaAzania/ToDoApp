@@ -9,7 +9,7 @@ JSON.parse( localStorage.getItem('items')) : [
 ];
 //
 document.addEventListener("DOMContentLoaded", ()=> {
-    readItems();
+    displayList();
 });
 
 const nameInput = document.querySelector('#name');
@@ -23,7 +23,7 @@ nameInput.addEventListener('change', (e) => {
     localStorage.setItem('username', e.target.value);
 })
 
-function addItems() {
+function addToList() {
     try{
         let list = document.getElementById('list-content').value;
         // Fetch the last index of id
@@ -41,27 +41,27 @@ function addItems() {
     }catch(e) {
         console.log(e.message);
     }
-    readItems();
+    displayList();
 }
 
-function readItems() {
+function displayList() {
     let contents = document.querySelector('#item-wrapper');
     contents.innerHTML = "";
     lists.forEach( (item, index)=> {
         contents.innerHTML += 
         `
         <li class="bg-gradient list-unstyled" id="${index}">
-        <input type="checkbox" onclick="itemCompleted(${index})" class="chkItem form-check-input">
+        <input type="checkbox" onclick="done(${index})" class="chkItem form-check-input">
         <span class="list-content">${item.item}</span>
-        <i class="bi bi-x-octagon-fill list-icon" onclick="removeItem(${index})" id="${index}"></i>
+        <i class="bi bi-x-octagon-fill list-icon" onclick="deleteList(${index})" id="${index}"></i>
         </li>
         `;
     } );
 }
 const btnAddItem = document.querySelector('#addItem');
-btnAddItem.addEventListener('click', addItems);
+btnAddItem.addEventListener('click', addToList);
 
-function itemCompleted(id) {
+function done(id) {
     if(document.querySelectorAll('.chkItem')[id].checked) {
         document.querySelectorAll('.list-content')[id].classList.add('addLine');
     }else {
@@ -75,14 +75,14 @@ document.querySelector('#sorting').addEventListener('click', ()=> {
     });
  
     localStorage.setItem('items', JSON.stringify(lists));   
-    readItems(); 
+    displayList(); 
 });
 
-function removeItem(id) {
+function deleteList(id) {
     if(id > -1) {
         lists.splice(id, 1); 
         
         localStorage.setItem('items', JSON.stringify(lists));        
     }
-    readItems();
+    displayList();
 }
